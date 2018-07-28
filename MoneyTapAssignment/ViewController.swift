@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ViewController: UIViewController {
 
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultsTableView.rowHeight = 180
          bindUI()
     }
 
@@ -76,7 +78,8 @@ class ViewController: UIViewController {
             .bind(to: resultsTableView.rx.items) { tableView, row, repo in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ProfileTableViewCell
                 cell?.profileTitle.text = repo.name
-                //cell.detailTextLabel?.text = repo.language
+                cell?.profileImage.kf.setImage(with: URL(string: repo.thumbnailUrl))
+                cell?.profileDescription?.text = repo.profildesc
                 return cell!
             }
             .disposed(by: bag)
