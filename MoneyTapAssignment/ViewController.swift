@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyView: UILabel!
     
+    var wikis:[Repo?]?
     
     private let bag = DisposeBag()
     
@@ -30,6 +31,8 @@ class ViewController: UIViewController {
     }
 
       var api = "http://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpssearch=SachinT&gpslimit=10"
+    
+    var apiMapToURL = "https://en.wikipedia.org/w/api.php?action=query&prop=info&pageids=35319387&inprop=url"
     
     func bindUI() {
         // observe text, form request, bind table view to result
@@ -56,6 +59,20 @@ class ViewController: UIViewController {
                 }
                 return queries.flatMap(Repo.init)
             }
+            .map({ (repos) -> [Repo] in
+                
+                DispatchQueue.main.async {
+                    if(repos.count == 0) {
+                        self.emptyView.isHidden = false;
+                        self.resultsTableView.isHidden = true;
+                    } else {
+                        self.emptyView.isHidden = true;
+                        self.resultsTableView.isHidden = false;
+                    }
+                }
+                self.wikis = repos
+                return repos
+            })
             .bind(to: resultsTableView.rx.items) { tableView, row, repo in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
                 cell.textLabel!.text = repo.name
@@ -63,6 +80,12 @@ class ViewController: UIViewController {
                 return cell
             }
             .disposed(by: bag)
+        
+        resultsTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                let cell = self?.resultsTableView.cellForRow(at: indexPath) as? UITableViewCell
+                print("PageId \(self?.wikis![indexPath.row]?.id ) \(cell?.textLabel?.text)")
+            }) .disposed(by: bag)
     }
     
     
