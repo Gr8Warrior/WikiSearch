@@ -74,10 +74,10 @@ class ViewController: UIViewController {
                 return repos
             })
             .bind(to: resultsTableView.rx.items) { tableView, row, repo in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-                cell.textLabel!.text = repo.name
-                cell.detailTextLabel?.text = repo.language
-                return cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ProfileTableViewCell
+                cell?.profileTitle.text = repo.name
+                //cell.detailTextLabel?.text = repo.language
+                return cell!
             }
             .disposed(by: bag)
         

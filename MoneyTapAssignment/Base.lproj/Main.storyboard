@@ -27,18 +27,58 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Hyf-kM-IaR">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="144" id="Hyf-kM-IaR" customClass="ProfileTableViewCell" customModule="MoneyTapAssignment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hyf-kM-IaR" id="s4O-h9-0z6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-OF-sis">
+                                                    <rect key="frame" x="10" y="5" width="136" height="134"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="136" id="1lL-Gd-q0V"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2u-16-ye2">
+                                                    <rect key="frame" x="154" y="8" width="213" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oh8-P4-oPc">
+                                                    <rect key="frame" x="154" y="76" width="213" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Oh8-P4-oPc" secondAttribute="trailing" constant="8" id="7D4-HY-Id3"/>
+                                                <constraint firstAttribute="bottom" secondItem="DZr-OF-sis" secondAttribute="bottom" constant="5" id="Nnp-Fd-4xd"/>
+                                                <constraint firstItem="DZr-OF-sis" firstAttribute="leading" secondItem="s4O-h9-0z6" secondAttribute="leading" constant="10" id="OpE-fJ-rj4"/>
+                                                <constraint firstItem="DZr-OF-sis" firstAttribute="top" secondItem="s4O-h9-0z6" secondAttribute="top" constant="5" id="V2p-cW-DFb"/>
+                                                <constraint firstItem="O2u-16-ye2" firstAttribute="leading" secondItem="DZr-OF-sis" secondAttribute="trailing" constant="8" id="bRe-QI-EIg"/>
+                                                <constraint firstItem="Oh8-P4-oPc" firstAttribute="leading" secondItem="DZr-OF-sis" secondAttribute="trailing" constant="8" id="bpp-0E-xCm"/>
+                                                <constraint firstAttribute="trailing" secondItem="O2u-16-ye2" secondAttribute="trailing" constant="8" id="eVV-D7-kVL"/>
+                                                <constraint firstItem="Oh8-P4-oPc" firstAttribute="height" secondItem="O2u-16-ye2" secondAttribute="height" id="ik4-C3-5ur"/>
+                                                <constraint firstAttribute="bottom" secondItem="Oh8-P4-oPc" secondAttribute="bottom" constant="8" id="iuv-zF-e7M"/>
+                                                <constraint firstItem="Oh8-P4-oPc" firstAttribute="top" secondItem="O2u-16-ye2" secondAttribute="bottom" constant="8" id="ltL-DI-iYK"/>
+                                                <constraint firstItem="Oh8-P4-oPc" firstAttribute="width" secondItem="O2u-16-ye2" secondAttribute="width" id="ozG-3R-VM4"/>
+                                                <constraint firstItem="Oh8-P4-oPc" firstAttribute="top" secondItem="O2u-16-ye2" secondAttribute="bottom" constant="8" id="pFd-r8-cQf"/>
+                                                <constraint firstItem="O2u-16-ye2" firstAttribute="top" secondItem="s4O-h9-0z6" secondAttribute="top" constant="8" id="uWU-Bz-l9B"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileDescription" destination="Oh8-P4-oPc" id="wD3-Ed-CHr"/>
+                                            <outlet property="profileImage" destination="DZr-OF-sis" id="hjh-nE-tWX"/>
+                                            <outlet property="profileTitle" destination="O2u-16-ye2" id="U8b-Qs-CIb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBx-KD-Ed2">
-                                <rect key="frame" x="0.0" y="280" width="375" height="107.5"/>
+                                <rect key="frame" x="0.0" y="280" width="375" height="108"/>
                                 <string key="text">This app transforms Wikipedia into image search engine.
 It uses Wikipedia search API to find content and scrapes the HTML of those pages for image URLs.
 This is only showcase app, not intended for production purposes.</string>
@@ -50,12 +90,12 @@ This is only showcase app, not intended for production purposes.</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sl1-R8-Qfg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0Ft-QE-C4K"/>
-                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4dB-58-ien"/>
                             <constraint firstItem="sl1-R8-Qfg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dhm-s1-RKY"/>
-                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="trailing" secondItem="sl1-R8-Qfg" secondAttribute="trailing" id="Gb7-wd-8QO"/>
-                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ycn-QL-KEd"/>
-                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="leading" secondItem="sl1-R8-Qfg" secondAttribute="leading" id="g6s-IG-lzm"/>
+                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="216" id="EhU-nU-GtW"/>
+                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="leading" secondItem="sl1-R8-Qfg" secondAttribute="leading" id="Upn-ps-RSw"/>
+                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="q0l-iP-EgM"/>
                             <constraint firstItem="sl1-R8-Qfg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tsU-tY-M52"/>
+                            <constraint firstItem="fBx-KD-Ed2" firstAttribute="trailing" secondItem="sl1-R8-Qfg" secondAttribute="trailing" id="wrb-qe-Zfm"/>
                             <constraint firstItem="sl1-R8-Qfg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zc7-l4-EVP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

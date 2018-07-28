@@ -9,6 +9,6 @@ target 'MoneyTapAssignment' do
   # Pods for MoneyTapAssignment
 pod 'RxSwift',    '~> 4.0'
 pod 'RxCocoa',    '~> 4.0'
-
+pod 'Kingfisher', '~> 4.0'
 
 end

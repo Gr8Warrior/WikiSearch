@@ -14,6 +14,7 @@
 		B173414A210CA837000921F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1734149210CA837000921F7 /* Assets.xcassets */; };
 		B173414D210CA837000921F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B173414B210CA837000921F7 /* LaunchScreen.storyboard */; };
 		B1734155210CAC62000921F7 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734154210CAC62000921F7 /* Repo.swift */; };
+		B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B173414C210CA837000921F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B173414E210CA837000921F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1734154210CAC62000921F7 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B60F3810446B341602B3E3C2 /* Pods_MoneyTapAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTapAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				B173414B210CA837000921F7 /* LaunchScreen.storyboard */,
 				B173414E210CA837000921F7 /* Info.plist */,
 				B1734154210CAC62000921F7 /* Repo.swift */,
+				B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */,
 			);
 			path = MoneyTapAssignment;
 			sourceTree = "<group>";
@@ -168,11 +171,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoneyTapAssignment/Pods-MoneyTapAssignment-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -207,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1734155210CAC62000921F7 /* Repo.swift in Sources */,
+				B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */,
 				B1734145210CA837000921F7 /* ViewController.swift in Sources */,
 				B1734143210CA837000921F7 /* AppDelegate.swift in Sources */,
 			);
