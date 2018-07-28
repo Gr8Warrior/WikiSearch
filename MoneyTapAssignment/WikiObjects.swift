@@ -7,7 +7,7 @@
 //
 
 import UIKit
-struct Repo {
+struct WikiObjects {
     let id: Int
     let name: String
     let language: String

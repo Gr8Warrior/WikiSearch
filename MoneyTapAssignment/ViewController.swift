@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyView: UILabel!
     
-    var wikis:[Repo?]?
+    var wikis:[WikiObjects?]?
     
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultsTableView.rowHeight = 180
+        resultsTableView.rowHeight = 150
          bindUI()
     }
 
@@ -32,36 +32,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-      var api = "http://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpssearch=SachinT&gpslimit=10"
-    
-    var apiMapToURL = "https://en.wikipedia.org/w/api.php?action=query&prop=info&pageids=35319387&inprop=url"
-    
+      var api = "http://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=50&pilimit=10&wbptterms=description&gpslimit=10&gpssearch="
+ 
     func bindUI() {
         // observe text, form request, bind table view to result
         searchBar.rx.text
             .orEmpty
             .filter { query in
-                return query.count > 2
+                return query.count > 0
             }
             .debounce(0.5, scheduler: MainScheduler.instance)
             .map { query in
-                //var apiUrl = URLComponents(string: "https://api.github.com/search/repositories")!
-                let apiUrl = URLComponents(string: self.api)!
-                //apiUrl.queryItems = [URLQueryItem(name: "gpssearch=", value: query)]
+                let url = self.api.appending(query)
+                let apiUrl = URLComponents(string: url)!
                 return URLRequest(url: apiUrl.url!)
             }
             .flatMapLatest { request in
                 return URLSession.shared.rx.json(request: request)
                     .catchErrorJustReturn([])
             }
-            .map { json -> [Repo] in
+            .map { json -> [WikiObjects] in
                 guard let json = json as? [String: Any],
                     let items = json["query"] as? [String: Any], let queries = items["pages"] as? [[String: Any]]  else {
                         return []
                 }
-                return queries.flatMap(Repo.init)
+                return queries.flatMap(WikiObjects.init)
             }
-            .map({ (repos) -> [Repo] in
+            .map({ (repos) -> [WikiObjects] in
                 
                 DispatchQueue.main.async {
                     if(repos.count == 0) {
