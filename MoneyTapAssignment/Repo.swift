@@ -12,6 +12,7 @@ struct Repo {
     let name: String
     let language: String
     let thumbnailUrl: String
+    let wikiUrl: String
     
     init?(object: [String: Any]) {
         guard let id = object["pageid"] as? Int,
@@ -24,14 +25,16 @@ struct Repo {
         self.id = id
         self.name = name
         self.language = language
-        self.thumbnailUrl = thumbnailUrl;
+        self.thumbnailUrl = thumbnailUrl
+        self.wikiUrl = "https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&format=json&pageids=\(self.id)"
     }
     
-    init(_ id: Int, _ name: String, _ language: String, _ thumbnailUrl: String) {
+    init(_ id: Int, _ name: String, _ language: String, _ thumbnailUrl: String, _ wikiUrl:String ) {
         self.id = id
         self.name = name
         self.language = language
         self.thumbnailUrl = thumbnailUrl
+        self.wikiUrl = wikiUrl
     }
 }
 

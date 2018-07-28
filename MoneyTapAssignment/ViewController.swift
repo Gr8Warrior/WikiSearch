@@ -83,8 +83,36 @@ class ViewController: UIViewController {
         
         resultsTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
-                let cell = self?.resultsTableView.cellForRow(at: indexPath) as? UITableViewCell
-                print("PageId \(self?.wikis![indexPath.row]?.id ) \(cell?.textLabel?.text)")
+                
+                let url = URL(string: (self?.wikis![indexPath.row]?.wikiUrl)!)!
+                
+                URLSession.shared.dataTask(with:url, completionHandler: {(data, response, error) in
+                    guard let data = data, error == nil else { return }
+                    
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                        let posts = json["query"] as? [String: Any]
+                        let pages = posts!["pages"] as? [String: Any]
+                        guard let id = self?.wikis![indexPath.row]?.id else {
+                            return
+                        }
+                        let profile = pages!["\(id)"] as? [String: Any]
+                        guard let url = URL(string: profile!["fullurl"] as! String) else {
+                            return 
+                        }
+                        DispatchQueue.main.async {
+                            if #available(iOS 10.0, *) {
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                            } else {
+                                UIApplication.shared.openURL(url)
+                            }
+                        }
+                    } catch let error as NSError {
+                        print(error)
+                    }
+                }).resume()
+                
+                
             }) .disposed(by: bag)
     }
     
