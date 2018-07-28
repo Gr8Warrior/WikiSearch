@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5CBCD1666B5236194F512F03 /* Pods_MoneyTapAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60F3810446B341602B3E3C2 /* Pods_MoneyTapAssignment.framework */; };
+		B167B6E9210CEBF1003380AD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167B6E8210CEBF1003380AD /* Constants.swift */; };
 		B1734143210CA837000921F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734142210CA837000921F7 /* AppDelegate.swift */; };
 		B1734145210CA837000921F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734144210CA837000921F7 /* ViewController.swift */; };
 		B1734148210CA837000921F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1734146210CA837000921F7 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		5140A544A90A264C004F8BCA /* Pods-MoneyTapAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTapAssignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyTapAssignment/Pods-MoneyTapAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 		A158D27A77DE4D3EAD93E5ED /* Pods-MoneyTapAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyTapAssignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyTapAssignment/Pods-MoneyTapAssignment.release.xcconfig"; sourceTree = "<group>"; };
+		B167B6E8210CEBF1003380AD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B173413F210CA837000921F7 /* MoneyTapAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneyTapAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1734142210CA837000921F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1734144210CA837000921F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				B173414E210CA837000921F7 /* Info.plist */,
 				B1734154210CAC62000921F7 /* WikiObjects.swift */,
 				B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */,
+				B167B6E8210CEBF1003380AD /* Constants.swift */,
 			);
 			path = MoneyTapAssignment;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B167B6E9210CEBF1003380AD /* Constants.swift in Sources */,
 				B1734155210CAC62000921F7 /* WikiObjects.swift in Sources */,
 				B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */,
 				B1734145210CA837000921F7 /* ViewController.swift in Sources */,

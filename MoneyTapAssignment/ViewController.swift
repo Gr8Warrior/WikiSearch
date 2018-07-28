@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             }
             .debounce(0.5, scheduler: MainScheduler.instance)
             .map { query in
-                let url = self.api.appending(query)
+                let url = Constants.BASE_URL.appending(query)
                 let apiUrl = URLComponents(string: url)!
                 return URLRequest(url: apiUrl.url!)
             }
