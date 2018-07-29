@@ -7,7 +7,7 @@
 //
 
 import UIKit
-struct WikiObjects {
+struct WikiObject {
     let id: Int
     let name: String
     let language: String

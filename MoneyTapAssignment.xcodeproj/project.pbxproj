@@ -14,7 +14,7 @@
 		B1734148210CA837000921F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1734146210CA837000921F7 /* Main.storyboard */; };
 		B173414A210CA837000921F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1734149210CA837000921F7 /* Assets.xcassets */; };
 		B173414D210CA837000921F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B173414B210CA837000921F7 /* LaunchScreen.storyboard */; };
-		B1734155210CAC62000921F7 /* WikiObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734154210CAC62000921F7 /* WikiObjects.swift */; };
+		B1734155210CAC62000921F7 /* WikiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734154210CAC62000921F7 /* WikiObject.swift */; };
 		B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		B1734149210CA837000921F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B173414C210CA837000921F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B173414E210CA837000921F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1734154210CAC62000921F7 /* WikiObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiObjects.swift; sourceTree = "<group>"; };
+		B1734154210CAC62000921F7 /* WikiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiObject.swift; sourceTree = "<group>"; };
 		B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		B60F3810446B341602B3E3C2 /* Pods_MoneyTapAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTapAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +63,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B167B6EA210D7DD6003380AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B167B6EB210D7DEB003380AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1734154210CAC62000921F7 /* WikiObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B167B6EC210D7E13003380AD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1734144210CA837000921F7 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B167B6ED210D7E26003380AD /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				B1734142210CA837000921F7 /* AppDelegate.swift */,
+				B167B6E8210CEBF1003380AD /* Constants.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		B167B6EE210D7E3A003380AD /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B1734146210CA837000921F7 /* Main.storyboard */,
+				B173414B210CA837000921F7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		B1734136210CA836000921F7 = {
 			isa = PBXGroup;
 			children = (
@@ -84,15 +126,13 @@
 		B1734141210CA837000921F7 /* MoneyTapAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				B1734142210CA837000921F7 /* AppDelegate.swift */,
-				B1734144210CA837000921F7 /* ViewController.swift */,
-				B1734146210CA837000921F7 /* Main.storyboard */,
+				B167B6EE210D7E3A003380AD /* Storyboard */,
+				B167B6ED210D7E26003380AD /* Global */,
+				B167B6EC210D7E13003380AD /* ViewController */,
+				B167B6EB210D7DEB003380AD /* Model */,
+				B167B6EA210D7DD6003380AD /* View */,
 				B1734149210CA837000921F7 /* Assets.xcassets */,
-				B173414B210CA837000921F7 /* LaunchScreen.storyboard */,
 				B173414E210CA837000921F7 /* Info.plist */,
-				B1734154210CAC62000921F7 /* WikiObjects.swift */,
-				B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */,
-				B167B6E8210CEBF1003380AD /* Constants.swift */,
 			);
 			path = MoneyTapAssignment;
 			sourceTree = "<group>";
@@ -215,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B167B6E9210CEBF1003380AD /* Constants.swift in Sources */,
-				B1734155210CAC62000921F7 /* WikiObjects.swift in Sources */,
+				B1734155210CAC62000921F7 /* WikiObject.swift in Sources */,
 				B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */,
 				B1734145210CA837000921F7 /* ViewController.swift in Sources */,
 				B1734143210CA837000921F7 /* AppDelegate.swift in Sources */,

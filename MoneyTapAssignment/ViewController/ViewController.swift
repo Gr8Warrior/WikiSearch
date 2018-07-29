@@ -17,7 +17,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyView: UILabel!
     
-    var wikis:[WikiObjects?]?
+    var wikis:[WikiObject?]?
     
     private let bag = DisposeBag()
     
@@ -53,14 +53,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
                 return URLSession.shared.rx.json(request: request)
                     .catchErrorJustReturn([])
             }
-            .map { json -> [WikiObjects] in
+            .map { json -> [WikiObject] in
                 guard let json = json as? [String: Any],
                     let items = json["query"] as? [String: Any], let queries = items["pages"] as? [[String: Any]]  else {
                         return []
                 }
-                return queries.flatMap(WikiObjects.init)
+                return queries.flatMap(WikiObject.init)
             }
-            .map({ (repos) -> [WikiObjects] in
+            .map({ (repos) -> [WikiObject] in
                 
                 DispatchQueue.main.async {
                     if(repos.count == 0) {
