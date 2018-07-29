@@ -40,7 +40,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-OF-sis">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wiki.gif" translatesAutoresizingMaskIntoConstraints="NO" id="DZr-OF-sis">
                                                     <rect key="frame" x="10" y="5" width="136" height="134"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -145,4 +145,7 @@
             <point key="canvasLocation" x="-865" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="wiki.gif" width="450" height="250"/>
+    </resources>
 </document>

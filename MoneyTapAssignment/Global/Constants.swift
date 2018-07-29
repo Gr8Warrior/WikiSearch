@@ -14,4 +14,7 @@ struct Constants {
                         + "&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=150&pilim"
                         + "it=10&wbptterms=description&gpslimit=10&gpssearch="
 
+    static var placeholderImageURL = "https://educationaltechnology.net/wp-content/uploads/2017/09/wiki.gif"
+    static var profileURL = "https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&format=json&pageids="
+    
 }

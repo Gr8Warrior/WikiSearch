@@ -21,8 +21,7 @@ struct WikiObject {
         let name = object["title"] as? String
         let language = object["title"] as? String
         let thumbnail = (object["thumbnail"] as? [String: Any]) ?? [" ": ""]
-        let thumbnailUrl = thumbnail["source"] as? String ??
-        "https://style.anu.edu.au/_anu/4/images/placeholders/person.png"
+        let thumbnailUrl = thumbnail["source"] as? String ?? Constants.placeholderImageURL
         let terms = (object["terms"] as? [String: Any]) ?? [" ": " "]
         let desc = terms["description"] as? [String] ?? [" "]
         let profileDesc = desc[0]
@@ -31,8 +30,7 @@ struct WikiObject {
         self.name = name!
         self.language = language!
         self.thumbnailUrl = thumbnailUrl
-        self.wikiUrl =
-        "https://en.wikipedia.org/w/api.php?action=query&prop=info&inprop=url&format=json&pageids=\(self.pageId)"
+        self.wikiUrl = Constants.profileURL+"\(self.pageId)"
         self.profildesc = profileDesc
     }
     
