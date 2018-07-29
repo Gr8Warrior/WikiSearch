@@ -1,5 +1,5 @@
 # WikiSearch
-A simple app to search top results from wikipedia using RxSwift
+A simple app to search top results from wikipedia using RxSwift, RxCocoa, SwiftLint, Kingfisher and no Alamofire :-P
 
 
 ### Build Steps
@@ -8,6 +8,7 @@ A simple app to search top results from wikipedia using RxSwift
 ##### OS Dependencies:
 * Xcode 
 * Cocoapods
+* SwiftLint : $brew install swiftLint
 
 ##### Build Steps
 
