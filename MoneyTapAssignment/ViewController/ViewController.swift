@@ -17,7 +17,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyView: UILabel!
     
-    var wikis:[WikiObject?]?
+    var wikis: [WikiObject?]?
     
     private let bag = DisposeBag()
     
@@ -33,11 +33,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
  
     func bindUI() {
-        // observe text, form request, bind table view to result
         searchBar.rx.text
             .orEmpty
             .filter { query in
@@ -45,7 +43,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             }
             .debounce(0.5, scheduler: MainScheduler.instance)
             .map { query in
-                let url = Constants.BASE_URL.appending(query)
+                let url = Constants.baseURL.appending(query)
                 let apiUrl = URLComponents(string: url)!
                 return URLRequest(url: apiUrl.url!)
             }
@@ -55,30 +53,31 @@ class ViewController: UIViewController, UISearchBarDelegate {
             }
             .map { json -> [WikiObject] in
                 guard let json = json as? [String: Any],
-                    let items = json["query"] as? [String: Any], let queries = items["pages"] as? [[String: Any]]  else {
+                    let items = json["query"] as? [String: Any],
+                    let queries = items["pages"] as? [[String: Any]]  else {
                         return []
                 }
                 return queries.flatMap(WikiObject.init)
             }
-            .map({ (repos) -> [WikiObject] in
+            .map({ (wikis) -> [WikiObject] in
                 
                 DispatchQueue.main.async {
-                    if(repos.count == 0) {
-                        self.emptyView.isHidden = false;
-                        self.resultsTableView.isHidden = true;
+                    if wikis.count == 0 {
+                        self.emptyView.isHidden = false
+                        self.resultsTableView.isHidden = true
                     } else {
-                        self.emptyView.isHidden = true;
-                        self.resultsTableView.isHidden = false;
+                        self.emptyView.isHidden = true
+                        self.resultsTableView.isHidden = false
                     }
                 }
-                self.wikis = repos
-                return repos
+                self.wikis = wikis
+                return wikis
             })
-            .bind(to: resultsTableView.rx.items) { tableView, row, repo in
+            .bind(to: resultsTableView.rx.items) { tableView, _, wiki in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ProfileTableViewCell
-                cell?.profileTitle.text = repo.name
-                cell?.profileImage.kf.setImage(with: URL(string: repo.thumbnailUrl))
-                cell?.profileDescription?.text = repo.profildesc
+                cell?.profileTitle.text = wiki.name
+                cell?.profileImage.kf.setImage(with: URL(string: wiki.thumbnailUrl))
+                cell?.profileDescription?.text = wiki.profildesc
                 return cell!
             }
             .disposed(by: bag)
@@ -88,18 +87,22 @@ class ViewController: UIViewController, UISearchBarDelegate {
                 
                 let url = URL(string: (self?.wikis![indexPath.row]?.wikiUrl)!)!
                 
-                URLSession.shared.dataTask(with:url, completionHandler: {(data, response, error) in
+                URLSession.shared.dataTask(with: url, completionHandler: {(data, _, error) in
                     guard let data = data, error == nil else { return }
                     
                     do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                        guard let json = try JSONSerialization
+                                .jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+                            return
+                        }
                         let posts = json["query"] as? [String: Any]
                         let pages = posts!["pages"] as? [String: Any]
-                        guard let id = self?.wikis![indexPath.row]?.id else {
+                        guard let id = self?.wikis![indexPath.row]?.pageId else {
                             return
                         }
                         let profile = pages!["\(id)"] as? [String: Any]
-                        guard let url = URL(string: profile!["fullurl"] as! String) else {
+                        
+                        guard let urlString = profile!["fullurl"] as? String, let url = URL(string: urlString) else {
                             return 
                         }
                         DispatchQueue.main.async {
@@ -114,10 +117,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
                     }
                 }).resume()
                 
-                
             }) .disposed(by: bag)
     }
-    
-    
 }
-

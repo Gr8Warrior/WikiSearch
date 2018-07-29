@@ -9,6 +9,9 @@
 import UIKit
 
 struct Constants {
-    static var BASE_URL = "http://en.wikipedia.org//w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=150&pilimit=10&wbptterms=description&gpslimit=10&gpssearch="
+    static var baseURL = "http://en.wikipedia.org//w/api.php?"
+                        + "action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch"
+                        + "&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=150&pilim"
+                        + "it=10&wbptterms=description&gpslimit=10&gpssearch="
 
 }
