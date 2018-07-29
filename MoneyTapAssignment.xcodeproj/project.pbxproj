@@ -16,6 +16,7 @@
 		B173414D210CA837000921F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B173414B210CA837000921F7 /* LaunchScreen.storyboard */; };
 		B1734155210CAC62000921F7 /* WikiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734154210CAC62000921F7 /* WikiObject.swift */; };
 		B1734159210CDB71000921F7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */; };
+		B1B20655210D87790037FE8A /* wiki.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1B20654210D87790037FE8A /* wiki.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B173414E210CA837000921F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1734154210CAC62000921F7 /* WikiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiObject.swift; sourceTree = "<group>"; };
 		B1734158210CDB71000921F7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		B1B20654210D87790037FE8A /* wiki.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wiki.gif; sourceTree = "<group>"; };
 		B60F3810446B341602B3E3C2 /* Pods_MoneyTapAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyTapAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				B167B6EA210D7DD6003380AD /* View */,
 				B1734149210CA837000921F7 /* Assets.xcassets */,
 				B173414E210CA837000921F7 /* Info.plist */,
+				B1B20654210D87790037FE8A /* wiki.gif */,
 			);
 			path = MoneyTapAssignment;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B20655210D87790037FE8A /* wiki.gif in Resources */,
 				B173414D210CA837000921F7 /* LaunchScreen.storyboard in Resources */,
 				B173414A210CA837000921F7 /* Assets.xcassets in Resources */,
 				B1734148210CA837000921F7 /* Main.storyboard in Resources */,
